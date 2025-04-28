@@ -1,4 +1,4 @@
-package br.com.joao.service.http;
+package br.com.joao.domain.http;
 public class AgenciaHttp {
 
     private String nome;
