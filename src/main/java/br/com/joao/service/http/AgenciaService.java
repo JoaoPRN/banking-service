@@ -22,11 +22,24 @@ public class AgenciaService {
     public void cadastrar(Agencia agencia){
 
         AgenciaHttp agenciaHttp = situacaoCadastralHttpService.buscarPorCnpj(agencia.getCnpj());
-        if (agenciaHttp.getSituacaoCadastral().equals(SituacaoCadastral.ATIVO)){
+        if (agenciaHttp != null && agenciaHttp.getSituacaoCadastral().equals(SituacaoCadastral.ATIVO)){
             agencias.add(agencia);
 
         } else {
             throw new ErrosSistema.agenciaNaoAtivaOuNaoEncontradaException();
         }
+    }
+
+    public Agencia buscarPorId(Integer id) {
+        return agencias.stream().filter(agencia -> agencia.getId().equals(id)).toList().getFirst();
+    }
+
+    public void deletar(Integer id) {
+        agencias.removeIf(agencia -> agencia.getId().equals(id));
+    }
+
+    public void alterar(Agencia agencia) {
+        deletar(agencia.getId());
+        cadastrar(agencia);
     }
 }
