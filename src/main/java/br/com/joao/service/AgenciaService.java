@@ -1,4 +1,4 @@
-package br.com.joao.service.http;
+package br.com.joao.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +9,7 @@ import br.com.joao.domain.Agencia;
 import br.com.joao.domain.http.AgenciaHttp;
 import br.com.joao.domain.http.SituacaoCadastral;
 import br.com.joao.exceptions.ErrosSistema;
+import br.com.joao.service.http.SituacaoCadastralHttpService;
 import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped

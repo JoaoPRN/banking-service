@@ -3,7 +3,7 @@ package br.com.joao.controller;
 import org.jboss.resteasy.reactive.RestResponse;
 
 import br.com.joao.domain.Agencia;
-import br.com.joao.service.http.AgenciaService;
+import br.com.joao.service.AgenciaService;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -42,7 +42,6 @@ public class AgenciaController {
     }
 
     @PUT
-    @Path("{id}")
     public RestResponse<Void> alterar(Agencia agencia) {
         this.agenciaService.alterar(agencia);
         return RestResponse.ok();

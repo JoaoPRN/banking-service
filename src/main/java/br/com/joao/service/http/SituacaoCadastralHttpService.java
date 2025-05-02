@@ -8,7 +8,7 @@ import jakarta.ws.rs.Path;
 
 @Path("/situacao-cadastral")
 @RegisterRestClient(configKey = "situacao-cadastral-api")
-interface SituacaoCadastralHttpService {
+public interface SituacaoCadastralHttpService {
 
     @GET
     @Path("{cnpj}")

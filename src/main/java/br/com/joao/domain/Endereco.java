@@ -1,5 +1,11 @@
 package br.com.joao.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 class Endereco {
 
     private Integer id;
@@ -8,6 +14,8 @@ class Endereco {
     private String complemento;
     private Integer numero;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
