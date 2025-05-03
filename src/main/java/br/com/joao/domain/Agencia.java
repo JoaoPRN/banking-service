@@ -1,5 +1,6 @@
 package br.com.joao.domain;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -36,7 +37,7 @@ public class Agencia {
         return cnpj;
     }
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_id")
     public Endereco getEndereco() {
         return endereco;

@@ -15,7 +15,7 @@ import jakarta.ws.rs.core.UriInfo;
 @Path("/agencias")
 public class AgenciaController {
     
-    private AgenciaService agenciaService;
+    private final AgenciaService agenciaService;
 
     AgenciaController(AgenciaService agenciaService) {
         this.agenciaService = agenciaService;
@@ -29,14 +29,14 @@ public class AgenciaController {
 
     @GET
     @Path("{id}")
-    public RestResponse<Agencia> buscarPorId(Integer id){
+    public RestResponse<Agencia> buscarPorId(Long id){
         Agencia agencia = this.agenciaService.buscarPorId(id);
         return RestResponse.ok(agencia);
     }
 
     @DELETE
     @Path("{id}")
-    public RestResponse<Void> deletar(Integer id) {
+    public RestResponse<Void> deletar(Long id) {
         this.agenciaService.deletar(id);
         return RestResponse.ok();
     }
