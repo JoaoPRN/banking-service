@@ -14,6 +14,18 @@ class Endereco {
     private String complemento;
     private Integer numero;
 
+    Endereco(){
+
+    }
+
+    public Endereco(Integer id, String rua, String logradouro, String complemento, Integer numero) {
+        this.id = id;
+        this.rua = rua;
+        this.logradouro = logradouro;
+        this.complemento = complemento;
+        this.numero = numero;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {

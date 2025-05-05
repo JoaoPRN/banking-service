@@ -11,6 +11,18 @@ import jakarta.persistence.OneToOne;
 
 @Entity
 public class Agencia {
+    
+    Agencia() {
+
+    }
+
+    public Agencia(Integer id, String nome, String razaoSocial, String cnpj, Endereco endereco) {
+        this.id = id;
+        this.nome = nome;
+        this.razaoSocial = razaoSocial;
+        this.cnpj = cnpj;
+        this.endereco = endereco;
+    }
 
     private Integer id;
     private String nome;
