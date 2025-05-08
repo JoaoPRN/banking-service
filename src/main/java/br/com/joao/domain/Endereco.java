@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-class Endereco {
+public class Endereco {
 
     private Integer id;
     private String rua;

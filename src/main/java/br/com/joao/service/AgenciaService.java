@@ -8,6 +8,7 @@ import br.com.joao.domain.http.SituacaoCadastral;
 import br.com.joao.exceptions.ErrosSistema;
 import br.com.joao.repository.AgenciaRepository;
 import br.com.joao.service.http.SituacaoCadastralHttpService;
+import io.quarkus.logging.Log;
 import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
@@ -27,9 +28,11 @@ public class AgenciaService {
 
         AgenciaHttp agenciaHttp = situacaoCadastralHttpService.buscarPorCnpj(agencia.getCnpj());
         if (agenciaHttp != null && agenciaHttp.getSituacaoCadastral().equals(SituacaoCadastral.ATIVO)){
+            Log.info("A agência com o CNPJ" + agencia.getCnpj() + "foi cadastrada");
             agenciaRepository.persist(agencia);
 
         } else {
+            Log.info("A agência com o CNPJ" + agencia.getCnpj() + "não foi cadastrada");
             throw new ErrosSistema.agenciaNaoAtivaOuNaoEncontradaException();
         }
     }
@@ -39,10 +42,12 @@ public class AgenciaService {
     }
 
     public void deletar(Long id) {
+        Log.info("A agência com o id" + id + "foi deletada");
         agenciaRepository.deleteById(id);
     }
 
     public void alterar(Agencia agencia) {
+        Log.info("A agência com o CNPJ" + agencia.getCnpj() + " foi alterada");
         agenciaRepository.update("nome = ?1, razaoSocial = ?2, cnpj = ?3 where id = ?4", agencia.getNome(), agencia.getRazaoSocial(), agencia.getCnpj(), agencia.getId());
 
     }
